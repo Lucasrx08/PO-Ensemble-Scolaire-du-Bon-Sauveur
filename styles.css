@@ -10,3 +10,7 @@
 
 /* Couleurs de texte accessibles, y compris sur le rose BTS clair. */
 .eyebrow{color:var(--ink)}.homeTitle .eyebrow{color:var(--blue)}h1 em{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.14em}.homeTitle h1 em{color:var(--blue);text-decoration:none}.universNumber,.rowArrow,.programmeAction svg{color:var(--ink)}.universNumber{border-bottom:2px solid var(--row-color);padding-bottom:5px}.rowArrow{border-bottom:2px solid var(--row-color);padding-bottom:3px}.finishArt .eyebrow{color:var(--ink)}
+
+/* Plancher de lisibilité des libellés sur téléphone. */
+.eyebrow,.homeTitle .eyebrow{font-size:10px}.brand>span{font-size:8px}.edition{font-size:9px}.verticalLabel{font-size:8px}.homeBottom>p{font-size:10px}.topLabel{font-size:12px}.universNumber{font-size:10px}.universText small{font-size:11px}.soon{font-size:9px}.footnote{font-size:11px}.programmeMeta{font-size:10px}.programmeAction,.textButton{font-size:12px}.imageIndex{font-size:10px}.introRule{font-size:11px}.visitHeader .eyebrow,.sceneCaption .eyebrow{font-size:9px}.viewLabel{font-size:10px}.visitBottom>p{font-size:11px}.progressButton{font-size:12px}.signature{font-size:10px}
+@media(max-height:600px){.verticalLabel{font-size:7px}.homeBottom>p{font-size:10px}}
