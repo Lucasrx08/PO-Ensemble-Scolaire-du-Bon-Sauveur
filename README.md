@@ -1,72 +1,63 @@
-# Portes ouvertes — Bon Sauveur
+# Bon Sauveur — visite mobile des portes ouvertes
 
-Application photo autonome, conçue en priorité pour les téléphones tenus verticalement. Elle reprend les sept circuits et les photos du Genially fourni par Lucas RIGAUX. Aucun compte ni service externe n’est nécessaire pour les visiteurs après publication sur GitHub Pages.
+Application statique pour smartphone, sans installation ni compte. Publication sur la branche `main` du dépôt `Lucasrx08/PO-Ensemble-Scolaire-du-Bon-Sauveur`, à la racine via GitHub Pages.
 
-## Contenu livré
+Adresse : https://lucasrx08.github.io/PO-Ensemble-Scolaire-du-Bon-Sauveur/
 
-- Une présentation d’accueil et un menu par famille de formations.
-- Sept circuits, avec leurs ordres de vues propres.
-- 116 vues utilisées par les circuits, issues de 61 photos uniques stockées dans le dossier assets/photos.
-- Repères d’avancement repris du Genially lorsqu’ils sont utilisables ; bouton Continuer accessible sur toutes les vues.
-- Retour dans l’ordre du circuit sélectionné, accès aux vignettes, aide et changement de circuit.
-- Reprise de la progression sur le même navigateur, si son stockage local est disponible.
-- Écran de fin et possibilité de découvrir une autre filière.
+## Expérience
 
-Le dossier documentation contient la conception détaillée, la cartographie technique et les points restant à vérifier sur place. Les titres précis des salles ne sont pas inventés : la navigation indique « Vue 1 », « Vue 2 », etc. La visite utilise des photos fixes, sans zoom ni étape artificielle. Le fonctionnement hors connexion n’est pas garanti : aucun mode hors ligne complet n’est inclus.
+Accueil photographique → univers (Collège, Lycée, CAP, BTS) → formation → présentation du circuit → visite → conclusion. Le collège est explicitement indiqué à venir : aucun parcours collège n'est fourni par les données actuelles. Le lycée rassemble Seconde GT, ST2S, ASSP et ECP ; CAP AEPE et les deux BTS conservent leurs propres itinéraires.
 
-## Mettre sur GitHub
+La visite propose les photos entières, des repères d'avancement issus de la source, un bouton Continuer, le retour dans l'ordre du circuit, un sommaire de vignettes et un panneau d'informations avec les vues de la même séquence. Reprise enregistrée localement sur le même navigateur, si disponible. Les changements de formation et les liens directs fonctionnent par fragments d'URL.
 
-1. Décompresser l’archive sur le Mac.
-2. Dans GitHub, créer un dépôt nommé **Portes-Ouvertes**, avec un README. Le choisir public pour utiliser GitHub Pages avec un compte gratuit.
-3. Ouvrir ce dépôt puis **Add file → Upload files**.
-4. Glisser **le contenu du dossier portes-ouvertes-github**, en conservant les dossiers assets et documentation. Ne pas téléverser le ZIP ; ne pas ajouter le dossier parent autour de index.html.
-5. Cliquer sur **Commit changes**.
-6. Aller dans **Settings → Pages**.
-7. Dans **Build and deployment → Source**, sélectionner **Deploy from a branch**.
-8. Choisir la branche **main** et le dossier **/(root)**, puis **Save**.
-9. Attendre la fin du déploiement, puis utiliser le lien **Visit site** affiché par GitHub Pages.
+## Fichiers
 
-À la racine du dépôt, il faut voir index.html, styles.css, app.js, parcours.js, assets/, documentation/ et README.md. Le fichier .nojekyll fourni est facultatif pour cette structure mais peut aussi être ajouté. Aucun terminal, npm ou compilation n’est nécessaire.
+- `index.html` : point d'entrée et panneau modal accessible.
+- `styles.css` : styles pour smartphone, zones de sécurité, animations réduites.
+- `app.js` : navigation, chargement des images, stockage et interactions.
+- `parcours.js` : sept circuits, 116 scènes et 286 passages dans les itinéraires.
+- `configuration.js` : couverture, polices officielles et éventuelle configuration des univers.
+- 61 fichiers WebP à la racine du dépôt : conserver les chemins relatifs actuels.
 
-Le nom Portes-Ouvertes est une proposition : aucun dépôt GitHub n’a été créé dans cette livraison. Copier le lien réellement affiché par GitHub Pages pour le QR code, sans déduire l’adresse à partir du nom du dépôt.
+Aucune dépendance, compilation ou ressource tierce nécessaire en production. Les images restent chargées à la demande ; les deux suivantes sont préchargées. Le cache applicatif de promesses est limité à six entrées. Le fonctionnement hors connexion complet n'est pas inclus.
 
-Pour les prochains changements, téléverser les fichiers modifiés au même endroit puis valider un nouveau commit. GitHub Pages republiera le site. Le déploiement peut prendre jusqu’à dix minutes.
+## Identité graphique et polices
 
-## Vérifier après publication
+Bleu établissement `#0076ac`, rose lycée/CAP `#c8559d`, rose BTS `#d28db7`. Les roses portent les surfaces et les repères graphiques ; les petits textes utilisent l'anthracite pour leur lisibilité.
 
-- Tester sur un iPhone et un iPad, en portrait et en paysage.
-- Pour chaque formation, aller jusqu’à la fin et revenir sur quelques vues.
-- Vérifier sur place que les repères désignent bien les portes et les directions attendues.
-- Fermer et rouvrir la page pour vérifier la reprise.
-- Tester avec la connexion mobile disponible dans l’établissement.
-- Vérifier que le premier écran apparaît à l’adresse principale.
+Aucun fichier Balloon Extra Bold ou Heading Now n'était présent au moment de la refonte du 7 novembre 2026. La version emploie donc temporairement la police système. Elle ne prétend pas reproduire les typographies officielles.
 
-## Modifier les circuits
+Pour les intégrer : déposer les fichiers autorisés dans `assets/fonts/`, puis compléter `VISIT_CONFIG.fonts` dans `configuration.js` avec les chemins réels, le nom de famille et les graisses correspondant aux fichiers livrés. Le moteur charge les fontes avec FontFace et les ajoute au navigateur. Utiliser la famille `Balloon Extra Bold` pour les titres identitaires et `Heading Now` pour les textes. Ne pas renommer artificiellement une police générique. Aucun appel à des fichiers de fonte inexistants n'est émis lorsque `fonts` reste vide.
 
-parcours.js contient toutes les données. Chaque circuit possède une liste ordonnée scenes ; chaque identifiant correspond à une photo et, éventuellement, à un repère nextPosition en pourcentage du cadre vertical de référence 360 × 640. Le moteur utilise des chemins de fichiers relatifs, compatibles avec un site de projet GitHub Pages.
+## Modifier le contenu
 
-Pour ajouter une photo, la copier dans assets/photos puis renseigner son chemin dans parcours.js. Pour changer l’ordre d’un circuit, modifier sa liste scenes. Ne pas modifier une vue partagée sans contrôler les circuits qui l’utilisent. La cartographie dans documentation/cartographie.json est une copie de travail destinée à l’analyse ; le navigateur lit parcours.js.
+Chaque route contient `id`, `title`, `summary`, `scenes`. Les propriétés optionnelles `description` et `cover` permettent une présentation personnalisée. Les scènes sont partagées entre plusieurs circuits : leur ordre provient toujours de la route active.
 
-Si la structure des circuits change fortement entre deux éditions, modifier la clé de stockage bs-visite-v1 dans app.js pour éviter de reprendre un ancien numéro de vue.
+Une scène accepte :
 
-## Accès direct à un circuit
+- `photo` : chemin relatif réel de l'image.
+- `title` : nom de lieu validé par l'établissement.
+- `description` : information courte validée.
+- `sourceName` et `sourcePage` : traçabilité du relevé Genially.
+- `nextPosition` : repère d'avancement `{x, y}` en pourcentage de la photo.
+- `points` : liste optionnelle de points d'intérêt, chacun avec `title`, `text`, `position: {x, y}`, `photos` (liste optionnelle de chemins) et `target` (identifiant optionnel d'une scène du circuit courant).
 
-Ajouter à l’adresse publiée un fragment de ce type :
+Les points d'intérêt peuvent ouvrir du contenu complémentaire puis proposer un saut vers une autre scène du même circuit. Aucun détail sur un équipement ou une salle n'a été inventé pour remplir les panneaux. Par défaut, les informations reprennent le résumé de la formation ; « Vers la sortie » est conservé quand la source le fournit. La plupart des noms de salles et descriptions restent à renseigner.
 
-`#circuit=cap-aepe`
+Les univers peuvent être fournis dans `VISIT_CONFIG.universes` : liste d'objets `{id, title, subtitle, color, routes, photo}`. Sans cette propriété, les quatre univers actuels sont employés. Pour le collège, fournir d'abord un itinéraire réel et ses photos dans `parcours.js`, puis rattacher son identifiant à l'univers collège. Ne pas réutiliser arbitrairement un itinéraire lycée.
 
-Pour ouvrir une vue précise :
+## Liens directs
 
-`#circuit=cap-aepe&vue=3`
+- `#univers` : choix des univers.
+- `#univers=bts` : choix des BTS.
+- `#formation=bts-sp3s` : présentation de la formation.
+- `#circuit=bts-sp3s` : reprise du circuit.
+- `#circuit=bts-sp3s&vue=12` : vue 12 de ce circuit.
 
-La vue est numérotée dans le circuit sélectionné, à partir de 1. Les identifiants disponibles sont cap-aepe, bac-assp, bac-ecp, seconde-gt, st2s, bts-tourisme et bts-sp3s. Un fragment pointant une vue précise prend le pas sur la progression enregistrée. Un lien de circuit seul reprend la visite en cours sur le navigateur, s’il en existe une.
+Les anciens liens `#circuit=...&vue=...` restent pris en charge. Une vue explicite prime sur la sauvegarde. Un numéro hors limites est borné. Les sauvegardes invalides sont ignorées.
 
-## Sources
+## Validation et limites
 
-Genially source : https://view.genially.com/697756e7cbdd7382a5884bc5
+Voir `VERIFICATIONS.md`. Les sept circuits ont été parcourus intégralement dans le navigateur de contrôle, dans des cadres aux dimensions de smartphones. Ces essais ne remplacent pas un contrôle sur iPhone/Safari et Android réels, ni la validation des directions et de l'actualité des photos sur place.
 
-Documentation GitHub vérifiée le 7 novembre 2026 :
-- https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
-- https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-
-Version de travail : 7 novembre 2026. Les visuels proviennent du Genially fourni pour ce projet. Leur présence dans cette archive ne vaut pas licence de réutilisation par des tiers.
+Source des photos et parcours : https://view.genially.com/697756e7cbdd7382a5884bc5
