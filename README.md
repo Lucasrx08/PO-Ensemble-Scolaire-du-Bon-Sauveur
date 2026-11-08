@@ -13,7 +13,7 @@ La visite propose les photos entières, des repères d'avancement issus de la so
 ## Fichiers
 
 - `index.html` : point d'entrée et panneau modal accessible.
-- `styles.css` : styles pour smartphone, zones de sécurité, animations réduites.
+- `styles.css` : styles historiques et mise en page des parcours.\n- `experience-2026.css` : nouvelle identité visuelle, écrans de découverte et adaptations tactiles.
 - `app.js` : navigation, chargement des images, stockage et interactions.
 - `parcours.js` : sept circuits, 116 scènes et 286 passages dans les itinéraires.
 - `configuration.js` : couverture, polices officielles et éventuelle configuration des univers.
@@ -21,17 +21,21 @@ La visite propose les photos entières, des repères d'avancement issus de la so
 
 Aucune dépendance, compilation ou ressource tierce nécessaire en production. Les images restent chargées à la demande ; les deux suivantes sont préchargées. Le cache applicatif de promesses est limité à six entrées. Le fonctionnement hors connexion complet n'est pas inclus.
 
-## Identité graphique et polices
+## Identité graphique et expérience mobile — novembre 2026
 
-Bleu établissement `#0076ac`, rose lycée/CAP `#c8559d`, rose BTS `#d28db7`.
+La refonte visuelle se trouve dans `experience-2026.css`, chargé après `styles.css`. Elle améliore l'accueil photographique, le choix des univers, les cartes des formations, l'introduction aux parcours et la lisibilité des visites **sans remplacer le moteur de navigation ni modifier les données des circuits**.
 
-Les alternatives gratuites choisies le 8 novembre 2026 sont **Fredoka** pour les grands titres et **Barlow Condensed** pour les menus et les textes. Elles ne sont pas les polices officielles Balloon Extra Bold et Heading Now. Leurs fichiers WOFF sont auto-hébergés dans `assets/fonts/`, avec leurs licences SIL OFL. Aucun appel à Google Fonts n'est nécessaire pour afficher les textes.
+Palette officielle :
+- Bleu institutionnel commun `#0076ac`.
+- Vert Collège `#91c219`.
+- Rose Lycée et CAP `#c8559d`.
+- Rose BTS `#d28db7`.
 
-Sources : https://github.com/google/fonts/tree/main/ofl/fredoka et https://github.com/google/fonts/tree/main/ofl/barlowcondensed
+Le logo fourni par l'établissement est intégré sous `assets/logo-bon-sauveur.png` : copie réduite/optimisée pour l'affichage mobile, conservant ses couleurs et sa composition. Les grands titres utilisent la police libre Fredoka et les textes Barlow Condensed, déjà auto-hébergées. Ces polices sont des **substituts**, pas les typographies officielles Balloon Extra Bold et Heading Now 61–68, dont les fichiers ne sont pas encore fournis. Ne pas charger des polices depuis des sources non autorisées.
 
-Les fichiers ont été convertis du format TTF au format WOFF sans suppression des caractères. Fredoka conserve ses axes variables ; Barlow Condensed fournit les graisses 400, 500, 600 et 700. Les caractères français ont été vérifiés. Le préchargement porte sur Fredoka et Barlow Condensed Regular ; les autres graisses sont chargées à la demande.
+L'accueil est photographique par défaut. Si l'établissement dispose d'une courte vidéo MP4 optimisée dont les droits d'usage sont vérifiés, la déposer dans `assets/video/`, puis renseigner `VISIT_CONFIG.welcomeVideo` dans `configuration.js`. En l'absence de vidéo, la photographie existante assure un chargement rapide. **La vidéo Dailymotion ancienne n'est pas copiée ni embarquée.**
 
-Si les polices officielles sont acquises ultérieurement, leur intégration reste possible via `configuration.js` et les familles CSS `--display` et `--body`.
+Le collège est mis en évidence en vert mais reste marqué « visite à venir » jusqu'à la fourniture de vraies photos et d'un itinéraire validé. Aucune visite de collège fictive n'est créée.
 
 ## Modifier le contenu
 
