@@ -6,4 +6,11 @@ fonts: [
 ]
 Les noms de fichiers ci-dessus sont des exemples, pas des ressources présentes.
 */
-window.VISIT_CONFIG = {cover:'b122b102e107ebeb.webp',fonts:[]};
+window.VISIT_CONFIG = {
+  cover:'b122b102e107ebeb.webp',
+  // Après autorisation de réutilisation, déposer une courte vidéo MP4 optimisée
+  // et indiquer ici le chemin relatif, ex. 'assets/video/accueil.mp4'.
+  // La photographie reste affichée si aucune vidéo n'est fournie.
+  welcomeVideo:null,
+  fonts:[]
+};
