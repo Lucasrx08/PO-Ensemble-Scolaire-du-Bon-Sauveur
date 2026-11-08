@@ -226,3 +226,6 @@ html[data-universe="bts"] .guideBottom .sceneCaption .eyebrow{color:#8b396a}
 .homeStory h1 .welcomeLettering + em{margin-top:10px}
 @media(max-width:350px){.homeStory h1 .welcomeLettering img{max-height:82px}}
 @media(max-height:680px){.homeStory h1 .welcomeLettering img{max-height:78px}}
+
+/* Garder la consigne de déplacement sur les petits écrans. */
+.routeGuide .guideBottom>p{display:block}
