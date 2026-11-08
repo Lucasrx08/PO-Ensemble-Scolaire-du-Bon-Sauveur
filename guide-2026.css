@@ -211,3 +211,18 @@ html[data-universe="bts"] .guideBottom .sceneCaption .eyebrow{color:#8b396a}
   .wayMarker::before{animation:none!important}
   .guideProgress>span{transition:none}
 }
+
+/* Le titre Bienvenue réutilise réellement le graphisme de l'affiche fournie. */
+.homeStory h1 .welcomeLettering{
+ display:block;width:100%;margin:0;padding:0;
+ transform:none!important;text-shadow:none!important;
+ -webkit-text-stroke:0!important;line-height:1;
+}
+.homeStory h1 .welcomeLettering img{
+ display:block;width:100%;max-width:430px;height:auto;max-height:105px;
+ object-fit:contain;object-position:left center;
+ filter:drop-shadow(0 5px 9px #061b2a75);
+}
+.homeStory h1 .welcomeLettering + em{margin-top:10px}
+@media(max-width:350px){.homeStory h1 .welcomeLettering img{max-height:82px}}
+@media(max-height:680px){.homeStory h1 .welcomeLettering img{max-height:78px}}
