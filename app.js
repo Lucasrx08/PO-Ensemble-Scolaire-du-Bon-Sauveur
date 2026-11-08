@@ -29,7 +29,7 @@ const video=config.welcomeVideo? `<video autoplay muted loop playsinline preload
 app.innerHTML=`<section class="home v2-home" aria-label="Bienvenue au Bon Sauveur">
 <div class="heroBackdrop"><img src="${esc(config.cover||'b122b102e107ebeb.webp')}" alt="" fetchpriority="high">${video}</div><div class="heroGradient" aria-hidden="true"></div>
 <header class="homeHeader v2-homeHeader"><div class="logoBadge">${brand()}</div><span class="edition">PORTES<br>OUVERTES<small>Visite interactive</small></span></header>
-<div class="homeStory"><span class="heroPill">ENSEMBLE SCOLAIRE · SAINT-LÔ</span><h1><span>Bienvenue</span><em>au Bon Sauveur.</em></h1><p>Choisissez votre formation.<br>Nous vous guidons pas à pas.</p></div>
+<div class="homeStory"><span class="heroPill">ENSEMBLE SCOLAIRE · SAINT-LÔ</span><h1><span class="welcomeLettering"><img src="assets/bienvenue-signal.svg" alt="Bienvenue"></span><em>au Bon Sauveur.</em></h1><p>Choisissez votre formation.<br>Nous vous guidons pas à pas.</p></div>
 <footer class="homeBottom v2-homeBottom"><button class="primary heroAction" data-action="univers"><span>Choisir mon parcours</span></button>${latest?`<button class="textButton heroResume" data-action="resume:${esc(latest.id)}"><span>Reprendre mon parcours · ${esc(latest.title)}</span></button>`:''}
 <div class="heroMeta"><span>COLLÈGE <span class="dot"></span> LYCÉE <span class="dot"></span> CAP <span class="dot"></span> BTS</span></div></footer>
 </section>`;
