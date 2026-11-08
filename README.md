@@ -23,11 +23,15 @@ Aucune dépendance, compilation ou ressource tierce nécessaire en production. L
 
 ## Identité graphique et polices
 
-Bleu établissement `#0076ac`, rose lycée/CAP `#c8559d`, rose BTS `#d28db7`. Les roses portent les surfaces et les repères graphiques ; les petits textes utilisent l'anthracite pour leur lisibilité.
+Bleu établissement `#0076ac`, rose lycée/CAP `#c8559d`, rose BTS `#d28db7`.
 
-Aucun fichier Balloon Extra Bold ou Heading Now n'était présent au moment de la refonte du 7 novembre 2026. La version emploie donc temporairement la police système. Elle ne prétend pas reproduire les typographies officielles.
+Les alternatives gratuites choisies le 8 novembre 2026 sont **Fredoka** pour les grands titres et **Barlow Condensed** pour les menus et les textes. Elles ne sont pas les polices officielles Balloon Extra Bold et Heading Now. Leurs fichiers WOFF sont auto-hébergés dans `assets/fonts/`, avec leurs licences SIL OFL. Aucun appel à Google Fonts n'est nécessaire pour afficher les textes.
 
-Pour les intégrer : déposer les fichiers autorisés dans `assets/fonts/`, puis compléter `VISIT_CONFIG.fonts` dans `configuration.js` avec les chemins réels, le nom de famille et les graisses correspondant aux fichiers livrés. Le moteur charge les fontes avec FontFace et les ajoute au navigateur. Utiliser la famille `Balloon Extra Bold` pour les titres identitaires et `Heading Now` pour les textes. Ne pas renommer artificiellement une police générique. Aucun appel à des fichiers de fonte inexistants n'est émis lorsque `fonts` reste vide.
+Sources : https://github.com/google/fonts/tree/main/ofl/fredoka et https://github.com/google/fonts/tree/main/ofl/barlowcondensed
+
+Les fichiers ont été convertis du format TTF au format WOFF sans suppression des caractères. Fredoka conserve ses axes variables ; Barlow Condensed fournit les graisses 400, 500, 600 et 700. Les caractères français ont été vérifiés. Le préchargement porte sur Fredoka et Barlow Condensed Regular ; les autres graisses sont chargées à la demande.
+
+Si les polices officielles sont acquises ultérieurement, leur intégration reste possible via `configuration.js` et les familles CSS `--display` et `--body`.
 
 ## Modifier le contenu
 
