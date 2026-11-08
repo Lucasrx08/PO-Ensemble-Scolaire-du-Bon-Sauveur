@@ -70,3 +70,13 @@ Les anciens liens `#circuit=...&vue=...` restent pris en charge. Une vue explici
 Voir `VERIFICATIONS.md`. Les sept circuits ont été parcourus intégralement dans le navigateur de contrôle, dans des cadres aux dimensions de smartphones. Ces essais ne remplacent pas un contrôle sur iPhone/Safari et Android réels, ni la validation des directions et de l'actualité des photos sur place.
 
 Source des photos et parcours : https://view.genially.com/697756e7cbdd7382a5884bc5
+
+## Parcours guidés immersifs — mise à jour du 8 novembre 2026
+
+La navigation privilégie désormais **l'orientation des familles à l'intérieur de l'établissement** : chaque parcours représente l'itinéraire d'une formation, pas une galerie de photographies. Les compteurs de vues sont masqués dans l'interface publique ; une barre visuelle indique l'avancement sans imposer de numérotation aux familles. Sur chaque photo, une balise bleu institutionnel « PAR ICI » est affichée à proximité des coordonnées du repère source, quand elles existent ; le bouton « Étape suivante » reste toujours disponible.
+
+La visite utilise la photographie entière (`object-fit: contain`) et remplit les éventuelles marges par une version agrandie et floutée **de la même photographie**, sans modifier les fichiers des lieux. Les réglages CSS sont légers (luminosité, contraste et saturation). Il ne s'agit pas d'un panorama ni d'une direction de marche inventée : les coordonnées existantes sont préservées et seulement recentrées si nécessaire pour permettre l'interaction tactile.
+
+L'accueil utilise désormais `assets/bienvenue-signal.svg`, une illustration vectorisée du lettrage **BIENVENUE** fourni sur l'affiche officielle de l'établissement. Ce n'est pas un remplacement des fichiers de polices Balloon Extra Bold / Heading Now, qui restent absents du dépôt. Les autres textes de l'application restent de vrais éléments HTML, lisibles et modifiables.
+
+Cette mise à jour ajoute `guide-2026.css` (chargé après les deux feuilles de style existantes). Les sept itinéraires et les 61 photos du dépôt restent inchangés. Le parcours collège n'est pas inventé.
