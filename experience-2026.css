@@ -1,0 +1,208 @@
+
+/* Portes ouvertes — expérience mobile 2026. Design système :
+   Bleu commun #0076ac, Collège #91c219, Lycée/CAP #c8559d, BTS #d28db7.
+   Polices officielles seulement lorsqu'elles sont légalement fournies. */
+:root{
+  --blue:#0076ac;--college:#91c219;--lycee:#c8559d;--bts:#d28db7;
+  --ink:#132331;--subtle:#5d6974;--light:#f4f7f9;--paper:#fff;
+  --outline:#e6edf0;--round:22px;
+}
+html{background:#edf3f6}
+body{color:var(--ink);background:#edf3f6;font-size:16px}
+#app{background:#fff}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.045em}
+p{color:var(--subtle)}
+button{transition:transform .18s ease,filter .18s ease,background-color .18s ease}
+button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+button:disabled{cursor:not-allowed}
+.brand-lockup{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-lockup .brand-logo{width:64px;height:66px;object-fit:contain;flex-shrink:0}
+.brand-lockup .brand-title{font-family:var(--display);font-weight:650;font-size:15px;line-height:1.02;letter-spacing:-.04em;color:var(--blue);white-space:nowrap}
+.brand-lockup .brand-title small{display:block;font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.09em;margin-top:4px;color:var(--subtle)}
+.eyebrow{font-size:11px!important;letter-spacing:.15em;line-height:1.35;font-weight:700}
+.primary{font-size:17px;border-radius:16px;min-height:57px;font-family:var(--body);font-weight:700}
+.primary:active,.secondary:active{transform:scale(.98)}
+.page{padding-left:22px;padding-right:22px}
+.topbar{padding-top:calc(16px + env(safe-area-inset-top));padding-bottom:6px}
+.topbar .iconButton{border-radius:16px;background:#f3f7f9;border:0}
+.topLabel{font-family:var(--body);font-size:16px;font-weight:700!important;color:var(--blue)}
+.iconButton{border-radius:16px}
+.iconButton:active{transform:scale(.95)}
+
+/* Accueil immersif : affiche photographique complète, sans effet gadget. */
+.home.v2-home{position:relative;isolation:isolate;min-height:100svh;overflow:hidden;color:white;justify-content:space-between;background:#143e55}
+.v2-home .heroBackdrop{position:absolute;z-index:-3;inset:0;background:#1c607c}
+.v2-home .heroBackdrop>img,.v2-home .heroBackdrop>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 49%}
+.v2-home .heroBackdrop>video{z-index:1}
+.v2-home .heroGradient{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(9,32,49,.57) 0%,rgba(8,38,58,.13) 31%,rgba(6,24,37,.24) 47%,rgba(4,26,43,.94) 100%)}
+.v2-home::after{content:"";position:absolute;top:45%;right:-54px;z-index:-1;width:135px;height:135px;border:21px solid #d28db7;border-radius:48px;transform:rotate(30deg);opacity:.72;pointer-events:none}
+.v2-homeHeader{padding:calc(16px + env(safe-area-inset-top)) 20px 0!important;gap:10px;align-items:flex-start}
+.logoBadge{display:flex;align-items:center;min-height:86px;padding:8px 12px 8px 7px;background:#fff;border-radius:16px;box-shadow:0 6px 24px #071b2833;max-width:235px}
+.v2-homeHeader .edition{color:white;font-size:10px;letter-spacing:.11em;border:0;padding:13px 0 0;text-align:right;font-weight:700}
+.v2-homeHeader .edition small{display:block;letter-spacing:.04em;margin-top:6px;font-size:9px;color:#dfedf4;font-weight:500}
+.homeStory{margin-top:auto;padding:clamp(60px,14svh,160px) 25px 4px;position:relative}
+.heroPill{display:inline-flex;align-items:center;gap:9px;color:#fff;font:700 11px var(--body);letter-spacing:.1em;text-transform:uppercase}
+.heroPill::before{content:"";width:26px;height:4px;border-radius:5px;background:var(--college);box-shadow:10px 0 0 var(--lycee),20px 0 0 var(--bts);margin-right:18px}
+.homeStory h1{font-size:clamp(46px,12.6vw,68px);line-height:.99;margin:18px 0 0;font-weight:700;letter-spacing:-.04em;text-shadow:0 2px 18px #091e2766}
+.homeStory h1 span{display:block;color:white}
+.homeStory h1 em{display:block;font-style:normal;color:white;text-decoration:none;font-size:.7em;line-height:1.13;margin-top:9px;letter-spacing:-.025em}
+.homeStory h1 em::after{content:"";display:block;width:80px;height:6px;background:var(--lycee);border-radius:5px;margin:17px 0 0}
+.homeStory p{font-size:17px;font-weight:500;line-height:1.4;color:#fff;margin-top:16px;max-width:285px}
+.v2-homeBottom{padding:25px 25px calc(26px + env(safe-area-inset-bottom))!important}
+.v2-homeBottom .primary{color:#fff;background:var(--blue);border:1px solid #ffffff35;min-height:65px;box-shadow:0 8px 26px #082b4188;font-size:18px}
+.v2-homeBottom .textButton{color:#fff;font-size:14px}
+.v2-homeBottom .textButton svg{color:var(--college)}
+.heroMeta{display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:11px;color:#d8e7ed;margin-top:20px;letter-spacing:.02em;line-height:1.45}
+.heroMeta .dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--college);margin:0 7px 2px}
+.heroSkip{border:0;display:inline-flex;align-items:center;gap:6px;background:none;color:#fff;font-size:11px;font-weight:600;padding:7px 0}
+.heroSkip svg{width:14px;height:14px}
+
+/* Choix des univers : quatre cartes éditoriales, grandes et tactiles. */
+.selection{padding-bottom:calc(38px + env(safe-area-inset-bottom))}
+.selection .pageIntro{padding-top:24px}
+.selection .pageIntro .eyebrow{color:var(--blue)}
+.selection .pageIntro h1{font-size:clamp(36px,9vw,46px);line-height:1.03;margin:13px 0 15px;letter-spacing:-.04em}
+.selection .pageIntro h1 em{color:var(--blue);text-decoration:none}
+.selection .pageIntro p{font-size:16px;max-width:330px}
+.universeDeck{display:flex;flex-direction:column;gap:13px;margin-top:25px}
+.universeCard{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;min-height:158px;width:100%;text-align:left;padding:19px 18px;border:0;border-radius:20px;color:white;background:var(--realm);box-shadow:0 10px 25px #15384b16}
+.universeCard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;filter:saturate(1.07)}
+.universeCard .scrim{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#092638e8 0%,#092638b0 50%,#09263825 100%)}
+.universeCard::before{content:"";position:absolute;z-index:-1;left:0;top:0;width:8px;height:100%;background:var(--realm)}
+.universeCard::after{content:"";z-index:-1;position:absolute;width:100px;height:100px;right:-35px;top:-35px;border-radius:50%;border:16px solid var(--realm);opacity:.8}
+.universeCard[data-universe="college"]{background:linear-gradient(124deg,#496d18,#a6d83b)}
+.universeCard[data-universe="college"] .scrim{background:linear-gradient(95deg,#244008ee,#446b2abe)}
+.universeCard[data-universe="college"]::after{border-color:#d7ec91;right:0;top:-50px}
+.universeCopy{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.universeKicker{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#fff;opacity:.96}
+.universeKicker i{display:inline-block;width:7px;height:7px;background:var(--realm);border:1px solid #fff5;border-radius:50%;margin-right:7px}
+.universeCopy strong{font:700 35px/.99 var(--display);letter-spacing:-.045em;margin:11px 0 7px}
+.universeCopy small{font-size:13px;line-height:1.25;color:#edf5fa;font-weight:500}
+.universeCard .roundArrow{width:42px;height:42px;border-radius:50%;background:white;display:grid;place-items:center;flex-shrink:0;color:var(--blue)}
+.universeCard .roundArrow svg{width:20px;height:20px}
+.universeCard[data-universe="college"] .roundArrow{color:#44691b}
+.universeCard:active{transform:scale(.985)}
+.universeNote{font-size:12px;color:#687783;margin:15px 0 0;line-height:1.45}
+.selectionFooter{display:flex;gap:7px;align-items:center;justify-content:center;color:#6e7c86;font-size:12px;padding-top:20px}
+.selectionFooter span{width:5px;height:5px;border-radius:50%;background:var(--blue)}
+
+/* Univers détaillés : photographies et parcours lisibles en un coup d'œil */
+.programmes .pageIntro{padding-top:28px}
+.programmes .pageIntro h1{font-size:clamp(36px,10vw,47px);line-height:1.03;margin:12px 0}
+.programmes .pageIntro h1 em{text-decoration:none;color:var(--accent)}
+.programmes .pageIntro p{font-size:16px;max-width:330px}
+.programmeList{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.programmeCard{border:1px solid #e8edf0!important;border-radius:19px;overflow:hidden;display:grid;grid-template-columns:100px minmax(0,1fr);align-items:stretch;min-height:133px;background:#fff;box-shadow:0 8px 25px #193d4d0c;padding:0;text-align:left;width:100%;gap:0}
+.programmePic{position:relative;display:block;overflow:hidden;background:#eaf0f3}
+.programmePic img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.programmeCopy{display:flex;flex-direction:column;align-items:flex-start;gap:7px;padding:17px 16px 14px}
+.programmeMeta{color:var(--accent);font-weight:700!important;letter-spacing:.08em;font-size:10px!important}
+.programmeCopy strong{font-family:var(--body);font-size:24px;line-height:1.1;color:var(--ink);font-weight:700}
+.programmeSummary{color:#60717d;font-size:13px!important;line-height:1.35;max-width:none}
+.programmeFooter{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:auto;font-size:12px;color:var(--blue);font-weight:700}
+.programmeFooter svg{width:18px;height:18px}
+.programmeCard:active{transform:scale(.985)}
+
+/* Entrée d'un parcours */
+.routeIntro{background:#fff}
+.routeIntro .topbar{flex-shrink:0;padding:calc(14px + env(safe-area-inset-top)) 22px 14px}
+.routeIntro .introPhoto{margin:0 14px;border-radius:21px;min-height:240px;height:38svh;max-height:420px;background:#e9eff4}
+.routeIntro .introPhoto img{object-position:center;filter:saturate(1.06)}
+.routeIntro .imageIndex{top:15px;left:15px;bottom:auto;color:#fff;background:#092b42c9;padding:10px 13px;border-radius:30px;font-size:11px;letter-spacing:.08em}
+.routeIntro .introText{padding:26px 23px 23px}
+.routeIntro .introText h1{font-size:clamp(37px,10vw,48px);letter-spacing:-.045em;line-height:1.05;margin:13px 0 13px}
+.routeIntro .introText>p{font-size:16px;color:#526574;max-width:340px}
+.routeIntro .introText>.eyebrow{color:var(--accent)}
+.routeIntro .introRule{margin-top:22px;display:flex;align-items:center;gap:15px;padding:16px 0;font-size:13px}
+.routeIntro .introRule span:first-child{font-weight:700;color:var(--ink)}
+.routeIntro .introText .primary{background:var(--blue);color:#fff;min-height:60px;font-size:17px}
+.routeIntro .introText .textButton{font-size:13px}
+.routeIntro .introPhoto:after{content:"";position:absolute;right:0;bottom:0;width:80px;height:6px;background:var(--accent);border-radius:12px 0 0 0}
+
+/* Visite : l'image reste entière, les informations hors photo */
+.visit{background:#fff}
+.visitHeader{padding:calc(12px + env(safe-area-inset-top)) 17px 12px;border-bottom:1px solid #e8eef1}
+.visitHeader strong{font-size:17px;line-height:1.2;color:var(--ink)}
+.visitHeader .eyebrow{color:var(--blue)}
+.visitHeader .iconButton{border-radius:14px;background:#f2f6f8;border:0}
+.photoStage{background:#e5ecf1;border-radius:17px;margin:12px 12px 0;min-height:210px}
+.viewLabel{font-size:11px!important;font-weight:700;color:var(--blue);border-radius:9px}
+.direction,.interestPoint{background:var(--blue);color:#fff;box-shadow:0 0 0 5px #ffffff88,0 5px 16px #132c4a55;border:2px solid #fff;width:48px;height:48px}
+.visitBottom{padding:17px 20px calc(14px + env(safe-area-inset-bottom))}
+.sceneCaption h1{font-size:23px;font-family:var(--body);line-height:1.1}
+.sceneCaption .eyebrow{color:var(--accent);font-size:10px!important}
+.visitBottom>p{font-size:13px!important;line-height:1.45}
+.visitNavigation{grid-template-columns:82px 1fr;gap:15px}
+.visitNavigation .primary{background:var(--blue);color:white!important;font-size:17px;border-radius:14px}
+.progressTrack{height:4px;border-radius:10px}
+.progressTrack>span{background:var(--accent);border-radius:10px}
+.progressButton{color:var(--blue);font-weight:700}
+.photoError .primary{color:white}
+dialog{border-radius:24px 24px 0 0;box-shadow:0 -18px 65px #061d2f4d}
+dialog header{position:sticky;top:0;background:white;z-index:2;padding:6px 0}
+dialog h2{font-size:25px}
+.related img,.steps img{border-radius:11px}
+.steps button.current{border-radius:12px;outline:3px solid var(--accent);outline-offset:1px}
+.loading{font-size:13px}
+
+/* Fin de parcours */
+.finish{background:#fff}
+.finishArt{margin-top:54px}
+.finishArt>span:first-child{background:var(--blue);color:white;border-radius:18px}
+.finish h1{font-size:clamp(39px,10vw,51px);line-height:1.02}
+.finish h1 em{color:var(--accent);text-decoration:none}
+.finish>p{font-size:16px}
+.finish .finishSummary{font-size:14px}
+.finishActions .primary{background:var(--blue);color:#fff}
+.finishActions .secondary{border-radius:16px;color:var(--ink);min-height:54px;font-size:16px}
+.signature{font-size:12px;color:var(--blue)}
+
+/* Collège annoncé sans faux parcours, avec une vraie page d'attente */
+.emptyState{padding:45px 0 0}
+.emptyState .eyebrow{color:var(--college)}
+.emptyState h1{font-size:clamp(37px,10vw,50px);line-height:1.02;margin:24px 0}
+.emptyState h1 em{color:var(--college);text-decoration:none}
+.emptyState p{font-size:16px;line-height:1.55;max-width:330px}
+.emptyState .primary{background:var(--blue);color:#fff}
+.emptyState .collegeMotif{width:100%;height:150px;border-radius:20px;margin:23px 0 15px;background:linear-gradient(130deg,#8fbe1e,#c6df83);position:relative;overflow:hidden}
+.emptyState .collegeMotif:before{content:"";position:absolute;width:190px;height:190px;border:30px solid #fff7;border-radius:50%;right:-25px;top:-78px}
+.emptyState .collegeMotif:after{content:"COLLÈGE";font:700 45px var(--display);letter-spacing:-.04em;color:#fff;position:absolute;left:20px;bottom:18px}
+
+/* iPhone compact et adaptation clavier/agrandissement */
+@media(max-width:350px){
+  .brand-lockup .brand-logo{width:52px;height:56px}
+  .brand-lockup .brand-title{font-size:13px}
+  .logoBadge{max-width:205px}
+  .homeStory{padding-left:20px;padding-right:20px}
+  .homeStory h1{font-size:44px}
+  .v2-homeBottom{padding-left:20px!important;padding-right:20px!important}
+  .universeCard{min-height:146px}
+  .universeCopy strong{font-size:31px}
+  .programmeCard{grid-template-columns:88px minmax(0,1fr)}
+  .programmeCopy strong{font-size:21px}
+}
+@media(max-height:680px){
+  .v2-homeHeader{padding-top:calc(8px + env(safe-area-inset-top))!important}
+  .logoBadge{min-height:72px}
+  .brand-lockup .brand-logo{width:50px;height:54px}
+  .homeStory{padding-top:28px}
+  .homeStory h1{font-size:clamp(40px,11vw,53px);margin-top:11px}
+  .homeStory h1 em{margin-top:5px}
+  .homeStory h1 em::after{margin-top:10px}
+  .homeStory p{font-size:14px;margin-top:10px}
+  .v2-homeBottom{padding-top:15px!important;padding-bottom:calc(12px + env(safe-area-inset-bottom))!important}
+  .v2-homeBottom .primary{min-height:53px}
+  .heroMeta{margin-top:10px}
+  .routeIntro .introPhoto{min-height:170px;height:28svh}
+  .routeIntro .introText{padding-top:16px}
+  .routeIntro .introRule{margin-top:12px}
+  .visitBottom>p{display:none}
+}
+@media(max-height:545px){
+  .visit{min-height:450px}
+  .heroMeta{display:none}
+  .homeStory h1{font-size:40px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
