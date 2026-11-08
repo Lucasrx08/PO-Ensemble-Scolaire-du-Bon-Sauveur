@@ -1,0 +1,213 @@
+
+/* Bon Sauveur — Guide de circulation mobile, 8 novembre 2026.
+   Les photographies ne sont jamais retouchées ni recadrées dans le guide ;
+   seul leur rendu CSS est valorisé par un fond dérivé de la même image. */
+:root{
+  --display:'Arial Rounded MT Bold','Arial Black','Trebuchet MS',sans-serif;
+  --body:'Arial Narrow','Helvetica Neue',Arial,sans-serif;
+  --guide-navy:#073c60;--guide-blue:#0076ac;--guide-surface:#f8fafc;
+}
+body{font-family:var(--body)}
+button{font-family:var(--body)}
+h1,h2,h3{font-weight:900}
+.brand-lockup .brand-title{font-weight:900;letter-spacing:-.035em}
+.primary{font-size:17px;letter-spacing:-.01em}
+.pageIntro h1,.introText h1{font-weight:900;line-height:1.04}
+.homeStory h1{font-weight:900;letter-spacing:-.048em}
+.homeStory h1>span{
+  color:#fff;
+  -webkit-text-stroke:1.4px #0076ac;
+  text-shadow:3px 3px 0 #006eaa,0 9px 20px #05223590;
+  display:block;transform:skew(-3deg);
+}
+.homeStory h1>em{
+  color:#ffeaf5;letter-spacing:-.035em;
+  text-shadow:0 3px 13px #102b3b9e;
+}
+.heroAction{justify-content:center!important;font-size:18px}
+.heroResume{justify-content:center!important;color:#fff;font-size:14px}
+.v2-homeBottom .heroMeta{justify-content:center;letter-spacing:.075em;margin-top:13px}
+.universeCard .roundArrow{opacity:.9}
+.programmeCard{grid-template-columns:104px minmax(0,1fr);min-height:146px}
+.programmeCopy{padding:15px 15px}
+.programmeCopy strong{font-family:var(--body);font-size:25px;font-weight:800;letter-spacing:-.045em;line-height:1.05}
+.programmeSummary{font-size:15px!important;line-height:1.26}
+.programmeMeta{font-size:11px!important;letter-spacing:.08em}
+.programmeFooter{font-size:13px}
+.programmeFooter svg{width:17px;height:17px}
+.guideIntro .introText{padding-bottom:calc(22px + env(safe-area-inset-bottom))}
+.guideIntro .introPhoto{min-height:185px;max-height:370px;height:34svh}
+.guideIntro .introText h1{font-size:clamp(36px,10vw,47px);margin:12px 0 6px}
+.guideIntro .routeSubtitle{font-size:17px;line-height:1.4;color:#415667}
+.howToGuide{
+  display:grid;grid-template-columns:52px minmax(0,1fr);
+  align-items:center;gap:13px;padding:15px;margin:21px 0 21px;
+  background:#eef6fb;border:1px solid #d7e9f2;border-left:5px solid var(--blue);
+  border-radius:17px;
+}
+.howToIcon{display:grid;place-items:center;width:52px;height:52px;border-radius:15px;background:var(--blue);color:#fff}
+.howToIcon svg{width:27px;height:27px}
+.howToGuide strong{display:block;color:var(--ink);font:800 16px/1.2 var(--body);margin-bottom:5px}
+.howToGuide p{color:#314f63;font-size:14px;line-height:1.38}
+.guideIntro .introText .primary{font-size:17px;min-height:59px}
+.routeGuide{
+  position:relative;height:100svh;min-height:500px;
+  display:flex;flex-direction:column;overflow:hidden;
+  background:#fff;
+}
+.routeGuide .visitHeader{
+  flex-shrink:0;z-index:10;
+  background:#fff;border-bottom:1px solid #e6edf2;
+  padding:calc(9px + env(safe-area-inset-top)) 15px 9px;
+  min-height:64px;
+}
+.routeGuide .visitHeader .iconButton{width:43px;height:43px;min-width:43px}
+.routeGuide .visitHeader .eyebrow{color:var(--blue);font-size:10px!important;letter-spacing:.12em}
+.routeGuide .visitHeader strong{font-size:18px;font-weight:850;letter-spacing:-.03em}
+.routeGuide .immersiveStage{
+  display:block;position:relative;
+  flex:1 1 auto;min-height:160px;margin:0;
+  width:100%;border-radius:0;overflow:hidden;
+  background:#173b52;
+  isolation:isolate;
+}
+.immersiveStage .photoBackdrop{
+  position:absolute;z-index:0;inset:-12%;
+  width:124%;height:124%;max-width:none;
+  object-fit:cover;object-position:center;
+  filter:blur(26px) saturate(1.2) contrast(1.03) brightness(.75);
+  opacity:.96;transform:scale(1.03);pointer-events:none;
+}
+.immersiveStage:after{
+  content:"";position:absolute;z-index:1;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,#061b2a24 0%,transparent 20%,transparent 80%,#061b2a21 100%);
+}
+.immersiveStage .scenePhoto{
+  position:absolute;z-index:2;inset:0;
+  height:100%;width:100%;object-fit:contain;
+  filter:brightness(1.025) saturate(1.07) contrast(1.025);
+  border:0;box-shadow:none;
+}
+.immersiveStage #points{position:absolute;z-index:4;inset:0;pointer-events:none}
+.immersiveStage #points .interestPoint{pointer-events:auto}
+.immersiveStage .viewLabel{
+  position:absolute;top:12px;left:14px;z-index:4;
+  padding:8px 10px;background:#ffffffeb;color:var(--guide-navy);
+  font:800 10px var(--body);letter-spacing:.08em;
+  border:1px solid #e7edf2;border-radius:9px;
+}
+.guideHint{
+  position:absolute;z-index:4;top:12px;right:12px;
+  max-width:155px;text-align:right;
+  color:#fff;background:#062f4bbc;backdrop-filter:blur(7px);
+  border-radius:10px;padding:7px 9px;font:700 11px/1.25 var(--body);
+  box-shadow:0 3px 12px #08293a40;
+}
+.immersiveStage .wayMarker{
+  position:absolute;z-index:6;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;
+  transform:translate(-50%,-50%);
+  width:91px;height:83px;min-width:82px;min-height:75px;
+  padding:7px 6px 5px;border:3px solid #fff;border-radius:25px;
+  background:linear-gradient(145deg,#0a97d3,#0065a3);
+  color:white;box-shadow:0 8px 28px #00192c8c,0 0 0 6px #fff6;
+  cursor:pointer;
+}
+.wayMarker::before{
+  content:"";position:absolute;inset:-11px;border:2px solid #ffffffc9;
+  border-radius:32px;opacity:.7;pointer-events:none;
+  animation:routeBeaconPulse 2.7s ease-out infinite;
+}
+.wayMarkerIcon{display:grid;place-items:center}
+.wayMarkerIcon svg{width:32px;height:32px;stroke-width:2.8}
+.wayMarkerText{display:block;font:900 12px/1 var(--body);letter-spacing:.055em;color:#fff}
+.wayMarker:active{filter:brightness(1.13)}
+.wayMarker:focus-visible{outline:4px solid #fff;outline-offset:8px}
+@keyframes routeBeaconPulse{0%{transform:scale(.85);opacity:.95}70%{transform:scale(1.24);opacity:.06}100%{transform:scale(1.24);opacity:0}}
+.routeGuide .guideBottom{
+  flex:0 0 auto;z-index:9;position:relative;
+  background:#fff;padding:14px 18px calc(12px + env(safe-area-inset-bottom));
+  box-shadow:0 -6px 24px #071a2a16;border-top:1px solid #e1ecf2;
+}
+.guideBottom .sceneCaption{display:flex;align-items:center;gap:8px}
+.guideBottom .sceneCaption .eyebrow{color:var(--accent);font-size:10px!important;font-weight:800}
+.guideBottom .sceneCaption h1{font:900 23px/1.13 var(--body);letter-spacing:-.04em;margin-top:5px;color:#142e40}
+.guideBottom .sceneCaption .iconButton{min-height:40px;min-width:40px;width:40px;height:40px}
+.guideBottom>p{
+  font-size:13px!important;color:#486172;line-height:1.38;
+  margin-top:7px;max-width:none;
+}
+.guideBottom .guideNavigation{
+  display:grid;grid-template-columns:103px minmax(0,1fr);gap:11px;
+  margin:13px 0 0;align-items:stretch;
+}
+.guideSteps{
+  display:flex;gap:7px;justify-content:center;align-items:center;
+  min-height:54px;border:1px solid #d7e5ee;border-radius:14px;
+  background:#f1f6f9;color:#174c69;font:800 13px var(--body);
+  padding:10px;
+}
+.guideSteps svg{width:19px;height:19px}
+.guideNavigation .primary{
+  min-height:54px!important;
+  border-radius:14px!important;background:var(--blue)!important;
+  padding:11px 13px!important;gap:9px;
+  color:#fff!important;font-size:16px!important;font-weight:850;
+}
+.guideNavigation .primary svg{width:25px;height:25px}
+.guideProgress{
+  height:4px;border-radius:30px;background:#e4edf3;
+  overflow:hidden;margin:13px 0 0;
+}
+.guideProgress>span{
+  display:block;height:100%;width:0;
+  border-radius:30px;background:var(--blue);
+  transition:width .25s ease;
+}
+.immersiveStage .loading{z-index:8;background:#f2f8f9ed;font-size:13px}
+.immersiveStage .photoError{z-index:8}
+.immersiveStage .photoError .primary{background:var(--blue);color:#fff!important}
+.routeGuide dialog{z-index:25}
+
+/* Couleurs spécifiques conservées sans nuire au contraste des contrôles. */
+html[data-universe="college"] .guideBottom .sceneCaption .eyebrow,
+html[data-universe="college"] .introText .eyebrow{color:#5c8712}
+html[data-universe="bts"] .guideBottom .sceneCaption .eyebrow{color:#8b396a}
+
+/* Écrans compacts : la photo garde le maximum d'espace. */
+@media(max-height:720px){
+  .routeGuide .visitHeader{padding-top:calc(6px + env(safe-area-inset-top));padding-bottom:6px;min-height:57px}
+  .routeGuide .visitHeader .iconButton{width:39px;height:39px;min-width:39px}
+  .routeGuide .guideBottom{padding-top:10px;padding-bottom:calc(9px + env(safe-area-inset-bottom))}
+  .guideBottom .sceneCaption h1{font-size:20px}
+  .guideBottom>p{font-size:12px!important;margin-top:4px}
+  .guideBottom .guideNavigation{margin-top:10px}
+  .guideBottom .guideNavigation .primary,.guideSteps{min-height:47px!important}
+  .guideProgress{margin-top:9px}
+  .guideIntro .introPhoto{height:28svh;min-height:165px}
+  .howToGuide{padding:11px;margin:14px 0}
+}
+@media(max-height:560px){
+  .routeGuide{min-height:460px}
+  .routeGuide .guideBottom>p{display:block;font-size:11px!important;line-height:1.18}
+  .routeGuide .guideBottom{padding:7px 12px calc(7px + env(safe-area-inset-bottom))}
+  .guideBottom .guideNavigation{margin-top:7px}
+  .guideBottom .sceneCaption h1{font-size:18px}
+  .guideProgress{margin-top:7px}
+  .guideHint{display:none}
+}
+@media(max-width:350px){
+  .guideHint{font-size:10px;max-width:129px}
+  .routeGuide .guideBottom{padding-left:12px;padding-right:12px}
+  .guideBottom .guideNavigation{grid-template-columns:88px minmax(0,1fr)}
+  .guideSteps{font-size:12px}
+  .guideNavigation .primary{font-size:14px!important}
+  .programmeCard{grid-template-columns:90px minmax(0,1fr)}
+  .programmeCopy strong{font-size:22px}
+  .howToGuide{grid-template-columns:44px minmax(0,1fr)}
+  .howToIcon{width:44px;height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  .wayMarker::before{animation:none!important}
+  .guideProgress>span{transition:none}
+}
