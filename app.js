@@ -16,7 +16,7 @@ try{const v=JSON.parse(localStorage.getItem('bs-visite-v1')||'{}');if(v&&typeof 
 function save(done=false){const r=state.route;if(!r)return;saved[r.id]={index:state.index,done,at:Date.now()};try{localStorage.setItem('bs-visite-v1',JSON.stringify(saved));}catch{}}
 function announce(text){live.textContent=text;}
 function theme(g){document.documentElement.dataset.universe=g?.id||'establishment';document.documentElement.style.setProperty('--accent',g?.color||'#0076ac');document.querySelector('meta[name="theme-color"]').content=g?.color||'#0076ac';}
-function brand(){return '<span class="brand-lockup"><img class="brand-logo" src="assets/logo-bon-sauveur.webp" alt="" onerror="this.hidden=true"><span class="brand-title">BON SAUVEUR<small>ENSEMBLE SCOLAIRE · SAINT-LÔ</small></span></span>';}
+function brand(){return '<span class="brand-lockup"><img class="brand-logo" src="assets/logo-bon-sauveur.png" alt="" onerror="this.hidden=true"><span class="brand-title">BON SAUVEUR<small>ENSEMBLE SCOLAIRE · SAINT-LÔ</small></span></span>';}
 function button(label,action,icon='arrow',cls='primary'){return `<button class="${cls}" data-action="${action}"><span>${label}</span>${svg(icon)}</button>`;}
 function head(back='home',label='Portes ouvertes'){return `<header class="topbar"><button class="iconButton" data-action="${back}" aria-label="Retour">${svg('back')}</button><span class="topLabel">${esc(label)}</span><button class="iconButton" data-action="home" aria-label="Accueil">${svg('grid')}</button></header>`;}
 function go(hash){if(location.hash==='#'+hash)render();else location.hash=hash;}
