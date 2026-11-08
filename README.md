@@ -13,7 +13,8 @@ La visite propose les photos entières, des repères d'avancement issus de la so
 ## Fichiers
 
 - `index.html` : point d'entrée et panneau modal accessible.
-- `styles.css` : styles historiques et mise en page des parcours.\n- `experience-2026.css` : nouvelle identité visuelle, écrans de découverte et adaptations tactiles.
+- `styles.css` : styles historiques et mise en page des parcours.
+- `experience-2026.css` : nouvelle identité visuelle, écrans de découverte et adaptations tactiles.
 - `app.js` : navigation, chargement des images, stockage et interactions.
 - `parcours.js` : sept circuits, 116 scènes et 286 passages dans les itinéraires.
 - `configuration.js` : couverture, polices officielles et éventuelle configuration des univers.
